@@ -4,7 +4,7 @@ inThisBuild(
     version := "0.1.0",
     name := "embedded-keycloak",
     description := "embedded keycloak for testing",
-    organization := "com.github.mausamyede.embedded-keycloak",
+    organization := "com.github.mausamyede.osw",
     homepage := Some(url("https://github.com/mausamyede/embedded-keycloak")),
     scmInfo := Some(ScmInfo(url("https://github.com/mausamyede/embedded-keycloak"), "git@github.com:mausamyede/embedded-keycloak.git")),
     licenses := List(
