@@ -1,14 +1,17 @@
 inThisBuild(
   List(
     scalaVersion := "2.13.3",
-    version := "0.1.0-SNAPSHOT",
-    organization := "com.github.tmtsoftware.embedded-keycloak",
-    homepage := Some(url("https://github.com/tmtsoftware/embedded-keycloak")),
+    version := "0.1.0",
+    name := "embedded-keycloak",
+    description := "embedded keycloak for testing",
+    organization := "com.github.mausamyede.embedded-keycloak",
+    homepage := Some(url("https://github.com/mausamyede/embedded-keycloak")),
+    scmInfo := Some(ScmInfo(url("https://github.com/mausamyede/embedded-keycloak"), "git@github.com:mausamyede/embedded-keycloak.git")),
     licenses := List(
       "Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")
     ),
     developers := List(
-      Developer("tmtsoftware", "TMT", "", url("https://github.com/tmtsoftware"))
+      Developer("mausamyede", "TMT", "", url("https://github.com/mausamyede"))
     ),
     scalacOptions ++= Seq(
       "-encoding",
@@ -18,7 +21,14 @@ inThisBuild(
       "-deprecation",
       "-Xlint",
       "-Ywarn-dead-code"
-    )
+    ),
+    publishMavenStyle := true,
+    pomIncludeRepository := { _ => false },
+    publishTo := {
+      val nexus = "https://oss.sonatype.org/"
+      if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
+      else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+    }
   )
 )
 
