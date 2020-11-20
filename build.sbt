@@ -4,7 +4,7 @@ inThisBuild(
     version := "0.1.0",
     name := "embedded-keycloak",
     description := "embedded keycloak for testing",
-    organization := "io.github.mausamyede.osw",
+    organization := "io.github.mausamyede",
     homepage := Some(url("https://github.com/mausamyede/embedded-keycloak")),
     scmInfo := Some(ScmInfo(url("https://github.com/mausamyede/embedded-keycloak"), "git@github.com:mausamyede/embedded-keycloak.git")),
     licenses := List(
@@ -23,12 +23,7 @@ inThisBuild(
       "-Ywarn-dead-code"
     ),
     publishMavenStyle := true,
-    pomIncludeRepository := { _ => false },
-    publishTo := {
-      val nexus = "https://oss.sonatype.org/"
-      if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
-      else Some("releases" at nexus + "service/local/staging/deploy/maven2")
-    }
+    pomIncludeRepository := { _ => false }
   )
 )
 
@@ -48,3 +43,5 @@ lazy val `embedded-keycloak` = (project in file("embedded-keycloak"))
     ),
     parallelExecution in Test in ThisBuild := false
   )
+
+ThisBuild / publishTo := sonatypePublishToBundle.value
