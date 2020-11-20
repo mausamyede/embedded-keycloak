@@ -1,7 +1,7 @@
 inThisBuild(
   List(
     scalaVersion := "2.13.3",
-    version := "0.1.0",
+    version := "0.2.0",
     name := "embedded-keycloak",
     description := "embedded keycloak for testing",
     organization := "io.github.mausamyede",
@@ -27,7 +27,8 @@ inThisBuild(
   )
 )
 
-lazy val `embedded-keycloak` = (project in file("embedded-keycloak"))
+lazy val `embedded-keycloak-root` = project.in(file("."))
+lazy val `embedded-keycloak` = project
   .settings(
     libraryDependencies ++= Seq(
       "com.lihaoyi"       %% "requests"    % "0.6.5",
