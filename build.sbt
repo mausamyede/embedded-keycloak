@@ -27,7 +27,7 @@ inThisBuild(
   )
 )
 
-lazy val `embedded-keycloak-root` = project.in(file("."))
+lazy val `embedded-keycloak-root` = project.in(file(".")).aggregate(`embedded-keycloak`)
 lazy val `embedded-keycloak` = project
   .settings(
     libraryDependencies ++= Seq(
